@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">HelloConstraint</string>
+    <string name="toast_message">hello</string>
+</resources>
