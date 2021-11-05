@@ -7,16 +7,19 @@ import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.util.PrimitiveIterator;
 
 public class MainActivity extends AppCompatActivity {
     private EditText display;
+    private TextView problem;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         display=findViewById(R.id.blank);
+        problem=findViewById(R.id.problem);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             display.setShowSoftInputOnFocus(false);
         }
@@ -121,6 +124,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void btnEqual(View view) {
         String userExp= display.getText().toString();
+        String calculation= display.getText().toString()+"=";
+        problem.setText(calculation);
         Expression exp= new Expression(userExp);
         String result= String.valueOf(exp.calculate());
         display.setText(result);
